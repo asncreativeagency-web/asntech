@@ -1,0 +1,316 @@
+/* Global CSS Variables and Base Styles */
+@import './animations.css';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  /* Color Variables */
+  --background: #f9f9f9;
+  --body: #333;
+  --title: black;
+  --border-black-10: #0000001a;
+  --transparent: transparent;
+  --black: black;
+  --secondary: #6366f185;
+  --white: white;
+  --primary: #222;
+  --grey: #999;
+  --border-white-20: #fff3;
+  --border-white-10: #ffffff1a;
+  --img-background: #d9d9d9;
+  --border-black-20: #0003;
+  --blue-primary: #6366f1;
+
+  /* Spacing Variables */
+  --mobile-spacing: 20px;
+  --desktop-spacing: 80px;
+  --tablet-spacing: 80px;
+  --mobile-landscape-spacing: 80px;
+
+  /* Design System Colors */
+  --flowui-component-library--gray-900: #160042;
+  --flowui-component-library--grey-300: #e4e6f1;
+  --flowui-component-library--gray-200: #f3f5fb;
+  --flowui-component-library--white: white;
+  --flowui-component-library--gray-700: #282556;
+  --flowui-component-library--gray-500: #6b7094;
+  --flowui-component-library--gray-100: #f7f9fd;
+
+  --untitled-ui--gray600: #475467;
+  --untitled-ui--primary600: #7f56d9;
+  --untitled-ui--white: white;
+  --untitled-ui--primary700: #6941c6;
+  --untitled-ui--primary100: #f4ebff;
+  --untitled-ui--gray100: #f2f4f7;
+  --untitled-ui--gray700: #344054;
+  --untitled-ui--primary50: #f9f5ff;
+  --untitled-ui--gray300: #d0d5dd;
+  --untitled-ui--gray50: #f9fafb;
+  --untitled-ui--gray800: #1d2939;
+  --untitled-ui--gray900: #101828;
+  --untitled-ui--primary500: #9e77ed;
+  --untitled-ui--gray200: #eaecf0;
+  --untitled-ui--primary300: #d6bbfb;
+  --untitled-ui--gray500: #667085;
+  --untitled-ui--gray400: #98a2b3;
+  --untitled-ui--warning300: #fec84b;
+
+  --systemflow-lite--neutral--100: #0e0f11;
+  --systemflow-lite--neutral--80: #636b75;
+  --systemflow-lite--primary--10: #f2f6ff;
+  --systemflow-lite--primary--60: #2f54eb;
+  --systemflow-lite--neutral--40: #dde1e6;
+  --systemflow-lite--neutral--10-2: white;
+  --systemflow-lite--primary--50: #597ef7;
+  --systemflow-lite--primary--70: #1d39c4;
+  --systemflow-lite--primary--80: #10239e;
+  --systemflow-lite--primary--40: #85a5ff;
+  --systemflow-lite--neutral--70: #838d95;
+  --systemflow-lite--primary--20: #e5eeff;
+  --systemflow-lite--neutral--90: #1e2024;
+  --systemflow-lite--neutral--20: #f9fafb;
+  --systemflow-lite--neutral--30: #edf0f3;
+}
+
+/* CSS Reset and Base Styles */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  font-family: sans-serif;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--body);
+  font-family: Figtree, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+  min-height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* Typography */
+h1 {
+  color: var(--title);
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 50px;
+  font-weight: 500;
+  line-height: 120%;
+}
+
+h2 {
+  color: var(--title);
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 120%;
+}
+
+h3 {
+  color: var(--title);
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 140%;
+}
+
+h4 {
+  color: var(--title);
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 140%;
+}
+
+h5 {
+  color: var(--title);
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 150%;
+}
+
+h6 {
+  color: var(--title);
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 150%;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+a {
+  text-decoration: underline;
+}
+
+ul, ol {
+  margin-top: 0;
+  margin-bottom: 10px;
+  padding-left: 40px;
+}
+
+label {
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 150%;
+  display: block;
+}
+
+blockquote {
+  border-left: 5px solid #e2e2e2;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+figure {
+  margin-bottom: 10px;
+}
+
+img {
+  vertical-align: middle;
+  max-width: 100%;
+  display: inline-block;
+}
+
+/* Utility Classes */
+.d-none {
+  display: none;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.color-black {
+  color: var(--black);
+}
+
+.body-small {
+  font-size: 14px;
+  line-height: 150%;
+}
+
+.body-large {
+  font-size: 18px;
+  line-height: 150%;
+}
+
+/* App Container */
+.app {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Form Elements */
+input, select, textarea {
+  color: var(--body);
+  background-color: var(--white);
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.42857;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--blue-primary);
+  outline: none;
+}
+
+input::placeholder, select::placeholder, textarea::placeholder {
+  color: var(--grey);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 991px) {
+  :root {
+    --desktop-spacing: var(--tablet-spacing);
+  }
+  
+  h1 {
+    font-size: 42px;
+  }
+  
+  h2 {
+    font-size: 32px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  :root {
+    --desktop-spacing: var(--mobile-spacing);
+    --tablet-spacing: var(--mobile-spacing);
+  }
+  
+  h1 {
+    font-size: 36px;
+  }
+  
+  h2 {
+    font-size: 28px;
+  }
+  
+  h3 {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  h1 {
+    font-size: 32px;
+  }
+  
+  h2 {
+    font-size: 24px;
+  }
+  
+  h3 {
+    font-size: 20px;
+  }
+}

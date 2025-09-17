@@ -1,0 +1,111 @@
+/* Dark Mode Toggle Styles */
+.darkModeToggle {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.darkModeToggle:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.toggleTrack {
+  width: 50px;
+  height: 26px;
+  background: #e5e7eb;
+  border-radius: 13px;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid transparent;
+}
+
+.toggleTrack.dark {
+  background: #374151;
+}
+
+.toggleThumb {
+  width: 22px;
+  height: 22px;
+  background: white;
+  border-radius: 11px;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.toggleThumb.dark {
+  transform: translateX(24px);
+  background: #1f2937;
+}
+
+.icon {
+  font-size: 12px;
+  line-height: 1;
+}
+
+/* Dark theme variables */
+:root[data-theme="dark"] {
+  --background: #111827;
+  --white: #1f2937;
+  --black: #f9fafb;
+  --title: #f9fafb;
+  --body: #d1d5db;
+  --grey: #9ca3af;
+  --gray-50: #1f2937;
+  --gray-100: #374151;
+  --gray-200: #4b5563;
+  --gray-300: #6b7280;
+  --gray-400: #9ca3af;
+  --gray-500: #d1d5db;
+  --gray-600: #e5e7eb;
+  --gray-700: #f3f4f6;
+  --gray-800: #f9fafb;
+  --gray-900: #ffffff;
+  --border-black-10: #374151;
+  --border-black-20: #4b5563;
+  --img-background: #374151;
+}
+
+/* Dark mode transitions */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Dark mode specific adjustments */
+:root[data-theme="dark"] .hover-glow:hover {
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.5);
+}
+
+:root[data-theme="dark"] .card-enhance {
+  background: var(--gray-100);
+  border-color: var(--border-black-10);
+}
+
+:root[data-theme="dark"] .card-enhance:hover {
+  background: var(--gray-50);
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+:root[data-theme="dark"] .shimmer {
+  background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+}
+
+/* Dark mode logo and images */
+:root[data-theme="dark"] .logoItem {
+  filter: brightness(0) invert(1);
+  opacity: 0.8;
+}
+
+:root[data-theme="dark"] .logoItem:hover {
+  filter: brightness(0) invert(1);
+  opacity: 1;
+}

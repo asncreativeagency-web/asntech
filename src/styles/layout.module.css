@@ -1,0 +1,179 @@
+/* Layout Components */
+.container {
+  width: 100%;
+  max-width: 1336px;
+  padding-top: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;
+}
+
+.section {
+  padding-bottom: var(--desktop-spacing);
+  padding-top: 80px;
+  width: 100%;
+}
+
+.section.small {
+  padding-top: var(--mobile-spacing);
+  padding-bottom: var(--mobile-spacing);
+  background-color: var(--white);
+  width: 100%;
+}
+
+.section.toTop {
+  padding-top: 0;
+}
+
+/* Full width sections */
+.sectionFullWidth {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Grid System */
+.grid {
+  display: grid;
+  grid-row-gap: 16px;
+  grid-column-gap: 16px;
+  grid-template-rows: auto auto;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-columns: 1fr;
+}
+
+.gridCols1 {
+  grid-template-columns: 1fr;
+}
+
+.gridCols2 {
+  grid-template-columns: 1fr 1fr;
+}
+
+.gridCols3 {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.gridCols4 {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+/* Flexbox Utilities */
+.flex {
+  display: flex;
+}
+
+.flexColumn {
+  flex-direction: column;
+}
+
+.flexWrap {
+  flex-wrap: wrap;
+}
+
+.justifyBetween {
+  justify-content: space-between;
+}
+
+.justifyCenter {
+  justify-content: center;
+}
+
+.justifyStart {
+  justify-content: flex-start;
+}
+
+.justifyEnd {
+  justify-content: flex-end;
+}
+
+.alignCenter {
+  align-items: center;
+}
+
+.alignStart {
+  align-items: flex-start;
+}
+
+.alignEnd {
+  align-items: flex-end;
+}
+
+/* Spacing Utilities */
+.gap10 {
+  gap: 10px;
+}
+
+.gap15 {
+  gap: 15px;
+}
+
+.gap20 {
+  gap: 20px;
+}
+
+.gap25 {
+  gap: 25px;
+}
+
+.gap30 {
+  gap: 30px;
+}
+
+.gap40 {
+  gap: 40px;
+}
+
+.gap50 {
+  gap: 50px;
+}
+
+.gap60 {
+  gap: 60px;
+}
+
+.gap80 {
+  gap: 80px;
+}
+
+/* Responsive Grid */
+@media screen and (max-width: 991px) {
+  .container {
+    max-width: 728px;
+  }
+  
+  .gridCols3 {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .gridCols4 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    max-width: none;
+    padding-left: var(--mobile-spacing);
+    padding-right: var(--mobile-spacing);
+  }
+  
+  .gridCols2,
+  .gridCols3,
+  .gridCols4 {
+    grid-template-columns: 1fr;
+  }
+  
+  .section {
+    padding-bottom: var(--mobile-spacing);
+    padding-top: var(--mobile-spacing);
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}

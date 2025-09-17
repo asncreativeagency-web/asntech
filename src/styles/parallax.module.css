@@ -1,0 +1,234 @@
+/* Parallax Effects Styles */
+.parallaxContainer {
+  position: relative;
+  overflow: hidden;
+  height: auto;
+}
+
+.parallaxElement {
+  position: relative;
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.parallaxOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.1) 0%,
+    rgba(99, 102, 241, 0.05) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Floating animation elements */
+.floatingElement {
+  position: absolute;
+  opacity: 0.1;
+  animation: floatSlow 20s ease-in-out infinite;
+}
+
+.floatingElement:nth-child(2n) {
+  animation-delay: -10s;
+  animation-duration: 25s;
+}
+
+.floatingElement:nth-child(3n) {
+  animation-delay: -15s;
+  animation-duration: 30s;
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(-3deg);
+  }
+  75% {
+    transform: translateY(-30px) rotate(3deg);
+  }
+}
+
+/* Enhanced backgrounds */
+.parallaxHero {
+  background: linear-gradient(
+    135deg,
+    var(--background) 0%,
+    rgba(99, 102, 241, 0.05) 100%
+  );
+  position: relative;
+}
+
+.parallaxHero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(99, 102, 241, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Section dividers with parallax */
+.parallaxDivider {
+  position: relative;
+  height: 100px;
+  background: linear-gradient(
+    to bottom,
+    var(--background),
+    var(--gray-50)
+  );
+  overflow: hidden;
+}
+
+.parallaxDivider::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -10%;
+  width: 120%;
+  height: 200%;
+  background: 
+    radial-gradient(ellipse at center, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+  animation: slowRotate 60s linear infinite;
+}
+
+@keyframes slowRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Geometric background patterns */
+.geometricPattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.03;
+  background-image: 
+    linear-gradient(45deg, transparent 40%, var(--blue-primary) 40%, var(--blue-primary) 60%, transparent 60%),
+    linear-gradient(-45deg, transparent 40%, var(--blue-primary) 40%, var(--blue-primary) 60%, transparent 60%);
+  background-size: 60px 60px;
+  background-position: 0 0, 30px 30px;
+  pointer-events: none;
+}
+
+/* Dark mode adjustments */
+:root[data-theme=\"dark\"] .parallaxOverlay {
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.2) 0%,
+    rgba(99, 102, 241, 0.1) 50%,
+    transparent 100%
+  );
+}
+
+:root[data-theme=\"dark\"] .parallaxHero {
+  background: linear-gradient(
+    135deg,
+    var(--background) 0%,
+    rgba(99, 102, 241, 0.1) 100%
+  );
+}
+
+:root[data-theme=\"dark\"] .parallaxDivider {
+  background: linear-gradient(
+    to bottom,
+    var(--background),
+    var(--gray-100)
+  );
+}
+
+/* Particle effect */
+.particleContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: var(--blue-primary);
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: particleFloat 15s linear infinite;
+}
+
+.particle:nth-child(2n) {
+  animation-delay: -5s;
+  background: var(--blue-secondary);
+}
+
+.particle:nth-child(3n) {
+  animation-delay: -10s;
+  animation-duration: 20s;
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translateY(100vh) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.3;
+  }
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-10vh) translateX(100px);
+    opacity: 0;
+  }
+}
+
+/* Responsive parallax */
+@media (max-width: 768px) {
+  .parallaxElement {
+    transform: none !important;
+  }
+  
+  .floatingElement {
+    display: none;
+  }
+  
+  .particleContainer {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .parallaxElement {
+    transform: none !important;
+  }
+  
+  .floatingElement,
+  .particle {
+    animation: none;
+  }
+}

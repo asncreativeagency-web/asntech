@@ -1,0 +1,150 @@
+/* Skeleton Loading Styles */
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
+  animation: shimmer 2s infinite linear;
+  border-radius: 4px;
+  display: block;
+}
+
+.skeleton.circle {
+  border-radius: 50%;
+}
+
+.skeletonCard {
+  background: var(--white);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border-black-10);
+}
+
+.skeletonImage {
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.skeletonContent {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Dark mode skeleton styles */
+:root[data-theme="dark"] .skeleton {
+  background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+  background-size: 200px 100%;
+}
+
+:root[data-theme="dark"] .skeletonCard {
+  background: var(--gray-100);
+  border-color: var(--border-black-10);
+}
+
+/* Pulse variant for different loading states */
+.skeletonPulse {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Loading state wrapper */
+.loadingWrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.loadingWrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  animation: shimmerOverlay 2s infinite;
+  z-index: 1;
+}
+
+@keyframes shimmerOverlay {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Skeleton text variations */
+.skeletonText {
+  height: 1em;
+  margin: 0.5em 0;
+}
+
+.skeletonTitle {
+  height: 1.5em;
+  width: 60%;
+  margin: 0.5em 0;
+}
+
+.skeletonParagraph {
+  height: 1em;
+  width: 100%;
+  margin: 0.25em 0;
+}
+
+.skeletonParagraph:last-child {
+  width: 70%;
+}
+
+/* Skeleton button */
+.skeletonButton {
+  height: 40px;
+  width: 120px;
+  border-radius: 6px;
+}
+
+/* Skeleton avatar */
+.skeletonAvatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+/* Grid skeleton layouts */
+.skeletonGrid {
+  display: grid;
+  gap: 20px;
+}
+
+.skeletonGrid2 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.skeletonGrid3 {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.skeletonGrid4 {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+@media (max-width: 768px) {
+  .skeletonGrid2,
+  .skeletonGrid3,
+  .skeletonGrid4 {
+    grid-template-columns: 1fr;
+  }
+}
