@@ -546,12 +546,12 @@ function App() {
       <Footer
         brand={
           <div style={{ fontSize: '20px', fontWeight: 'bold', color: 'var(--white)' }}>
-            YourBrand
+            ASN-Building Empire's
           </div>
         }
         links={footerLinks}
         socialLinks={socialLinks}
-        copyright="© 2024 YourBrand. All rights reserved."
+        copyright="© 2024 ASN-Building Empire's. All rights reserved."
       />
     </div>
   );
