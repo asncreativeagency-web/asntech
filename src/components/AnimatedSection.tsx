@@ -25,7 +25,7 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({
 
   return (
     <div
-      ref={targetRef}
+      ref={targetRef as React.RefObject<HTMLDivElement>}
       className={`
         ${isIntersecting ? animationClass : 'animate-on-scroll'}
         ${delayClass}
