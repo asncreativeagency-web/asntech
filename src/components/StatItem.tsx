@@ -1,6 +1,7 @@
 import { useCountUpAnimation } from '../hooks/useAnimations';
 import styles from '../styles/services.module.css';
 import animationStyles from '../styles/animations.module.css';
+import React from 'react';
 
 interface StatItemProps {
   number: number;
@@ -14,7 +15,7 @@ const StatItem = ({ number, suffix = '+', label, duration = 2000 }: StatItemProp
 
   return (
     <div className={`${styles.projectBlock} ${animationStyles.fadeIn}`}>
-      <span ref={countRef as any} className={styles.projectComplete}>
+      <span ref={countRef as React.RefObject<HTMLSpanElement>} className={styles.projectComplete}>
         {number}{suffix}
       </span>
       <span>{label}</span>

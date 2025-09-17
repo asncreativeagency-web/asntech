@@ -1,6 +1,7 @@
 import { useScrollAnimation } from '../hooks/useAnimations';
 import animationStyles from '../styles/animations.module.css';
 import styles from '../styles/testimonial.module.css';
+import React from 'react';
 
 interface TestimonialCardProps {
   name: string;
@@ -22,7 +23,7 @@ const TestimonialCard = ({
   const animationRef = useScrollAnimation('fadeInLeft', { duration: 800 });
 
   return (
-    <div ref={animationRef as any} className={`${styles.testimonialCard} ${animationStyles.cardEnhance} ${animationStyles.hoverLift}`}>
+    <div ref={animationRef as React.RefObject<HTMLDivElement>} className={`${styles.testimonialCard} ${animationStyles.cardEnhance} ${animationStyles.hoverLift}`}>
       <div className={styles.testimonialContent}>
         <div className={styles.quote}>"</div>
         <p className={styles.testimonialText}>{content}</p>
@@ -40,7 +41,8 @@ const TestimonialCard = ({
             <div className={styles.avatarPlaceholder}>
               {name.charAt(0)}
             </div>
-          )}
+          )
+          }
         </div>
         <div className={styles.authorInfo}>
           <div className={styles.authorName}>{name}</div>

@@ -12,7 +12,6 @@ export const TypingBrand: React.FC<TypingBrandProps> = ({
   onAnimationComplete
 }) => {
   const [displayText, setDisplayText] = useState('ASN.Technologies');
-  const [isTyping, setIsTyping] = useState(false);
   
   const staticPart = 'ASN.';
   const typingPart = 'Technologies';
@@ -21,7 +20,6 @@ export const TypingBrand: React.FC<TypingBrandProps> = ({
     // Simple timeout-based animation
     const startAnimation = () => {
       setDisplayText('ASN.'); // Start with static part
-      setIsTyping(true);
       
       // Type out Technologies letter by letter
       let index = 0;
@@ -31,7 +29,6 @@ export const TypingBrand: React.FC<TypingBrandProps> = ({
           index++;
         } else {
           clearInterval(typeInterval);
-          setIsTyping(false);
           onAnimationComplete?.();
           
           // Wait 3 seconds then restart
@@ -48,7 +45,7 @@ export const TypingBrand: React.FC<TypingBrandProps> = ({
     return () => {
       clearTimeout(initialTimeout);
     };
-  }, []);
+  }, [onAnimationComplete]);
 
   return (
     <div 

@@ -4,7 +4,7 @@ import Lottie from 'lottie-react';
 export interface AnimatedTextProps {
   text: string;
   animationType?: 'fadeIn' | 'slideIn' | 'typewriter' | 'bounce' | 'custom';
-  animationData?: any; // For custom Lottie JSON
+  animationData?: Record<string, unknown>; // For custom Lottie JSON
   duration?: number;
   delay?: number;
   className?: string;
@@ -25,6 +25,19 @@ export const AnimatedText: React.FC<AnimatedTextProps> = ({
   const [isVisible, setIsVisible] = useState(false);
   const [displayText, setDisplayText] = useState('');
 
+  const typewriterEffect = React.useCallback(() => {
+    let i = 0;
+    const timer = setInterval(() => {
+      if (i < text.length) {
+        setDisplayText((prev) => prev + text.charAt(i));
+        i++;
+      } else {
+        clearInterval(timer);
+        onAnimationComplete?.();
+      }
+    }, duration / text.length);
+  }, [text, duration, onAnimationComplete]);
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true);
@@ -37,20 +50,7 @@ export const AnimatedText: React.FC<AnimatedTextProps> = ({
     }, delay);
 
     return () => clearTimeout(timer);
-  }, [text, delay, animationType]);
-
-  const typewriterEffect = () => {
-    let i = 0;
-    const timer = setInterval(() => {
-      if (i < text.length) {
-        setDisplayText((prev) => prev + text.charAt(i));
-        i++;
-      } else {
-        clearInterval(timer);
-        onAnimationComplete?.();
-      }
-    }, duration / text.length);
-  };
+  }, [text, delay, animationType, typewriterEffect]);
 
   const getAnimationStyle = (): React.CSSProperties => {
     const baseStyle: React.CSSProperties = {

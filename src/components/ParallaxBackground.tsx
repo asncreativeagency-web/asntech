@@ -1,5 +1,6 @@
 import { useParallax } from '../hooks/useAnimations';
 import styles from '../styles/parallax.module.css';
+import React from 'react';
 
 interface ParallaxBackgroundProps {
   speed?: number;
@@ -19,7 +20,7 @@ const ParallaxBackground = ({
   return (
     <div className={`${styles.parallaxContainer} ${className}`}>
       <div 
-        ref={parallaxRef as any} 
+        ref={parallaxRef as React.RefObject<HTMLDivElement>} 
         className={styles.parallaxElement}
       >
         {overlay && <div className={styles.parallaxOverlay} />}

@@ -2,14 +2,13 @@ import React from 'react';
 import Lottie from 'lottie-react';
 
 interface TextAnimationProps {
-  animationData: any;
+  animationData: Record<string, unknown>;
   text?: string;
   className?: string;
   style?: React.CSSProperties;
   loop?: boolean;
   autoplay?: boolean;
   onComplete?: () => void;
-  onAnimationComplete?: () => void;
 }
 
 export const TextAnimation: React.FC<TextAnimationProps> = ({
@@ -19,8 +18,7 @@ export const TextAnimation: React.FC<TextAnimationProps> = ({
   style,
   loop = false,
   autoplay = true,
-  onComplete,
-  onAnimationComplete
+  onComplete
 }) => {
   const defaultStyle: React.CSSProperties = {
     width: '100%',
@@ -35,7 +33,7 @@ export const TextAnimation: React.FC<TextAnimationProps> = ({
         animationData={animationData}
         loop={loop}
         autoplay={autoplay}
-        onComplete={onComplete}
+        onComplete={onComplete as () => void}
         style={{ width: '100%', height: '100%' }}
       />
       {text && (

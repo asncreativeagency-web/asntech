@@ -9,11 +9,21 @@ export interface FontConfig {
   };
 }
 
+interface WebFont {
+  load: (config: FontConfig & { active: () => void; inactive: () => void }) => void;
+}
+
+declare global {
+  interface Window {
+    WebFont?: WebFont;
+  }
+}
+
 export const loadFonts = (config: FontConfig): Promise<void> => {
   return new Promise((resolve, reject) => {
     // Check if WebFont is already loaded
-    if ((window as any).WebFont) {
-      (window as any).WebFont.load({
+    if (window.WebFont) {
+      window.WebFont.load({
         ...config,
         active: resolve,
         inactive: reject,
@@ -25,8 +35,8 @@ export const loadFonts = (config: FontConfig): Promise<void> => {
     const script = document.createElement('script');
     script.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
     script.onload = () => {
-      if ((window as any).WebFont) {
-        (window as any).WebFont.load({
+      if (window.WebFont) {
+        window.WebFont.load({
           ...config,
           active: resolve,
           inactive: reject,

@@ -1,6 +1,7 @@
 import { useScrollAnimation } from '../hooks/useAnimations';
 import animationStyles from '../styles/animations.module.css';
 import styles from '../styles/blog.module.css';
+import React from 'react';
 
 export interface BlogCardProps {
   title: string;
@@ -21,7 +22,7 @@ const BlogCard = ({
 
   return (
     <a 
-      ref={animationRef as any}
+      ref={animationRef as React.RefObject<HTMLAnchorElement>}
       href={href} 
       className={`${styles.blogCard} ${animationStyles.cardEnhance} ${animationStyles.hoverLift}`} 
       onClick={onClick}

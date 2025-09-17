@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import NavDropdown from './NavDropdown';
 import styles from '../styles/navigation.module.css';
-import buttonStyles from '../styles/buttons.module.css';
 
 export interface NavigationProps {
   brand?: React.ReactNode;

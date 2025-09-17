@@ -7,7 +7,6 @@ import Button from './Button';
 import Flex from './Flex';
 import Grid from './Grid';
 import textAnimationData from '../animations/textFadeIn.json';
-import styles from '../styles/components.module.css';
 
 const TextAnimationDemo: React.FC = () => {
   const [selectedAnimation, setSelectedAnimation] = useState<'fadeIn' | 'slideIn' | 'typewriter' | 'bounce' | 'custom'>('fadeIn');
@@ -106,7 +105,6 @@ const TextAnimationDemo: React.FC = () => {
               key={triggerKey}
               animationData={textAnimationData}
               style={{ maxWidth: '500px', height: '200px' }}
-              onAnimationComplete={() => console.log('Lottie animation completed!')}
             />
           ) : (
             <AnimatedText

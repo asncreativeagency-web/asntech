@@ -9,8 +9,6 @@ import Section from './components/Section';
 import Button from './components/Button';
 import Grid from './components/Grid';
 import Flex from './components/Flex';
-import Card from './components/Card';
-import Hero from './components/Hero';
 import ContactForm from './components/ContactForm';
 import BlogCard from './components/BlogCard';
 import WorkCard from './components/WorkCard';
@@ -18,18 +16,12 @@ import OriginalHero from './components/OriginalHero';
 import TestimonialCard from './components/TestimonialCard';
 import ClientLogos from './components/ClientLogos';
 import ScrollProgress from './components/ScrollProgress';
-import DarkModeToggle from './components/DarkModeToggle';
-import NavDropdown from './components/NavDropdown';
 import TextAnimationDemo from './components/TextAnimationDemo';
 import TypingBrand from './components/TypingBrand';
-import TextAnimation from './components/TextAnimation';
-
-import { useCountUpAnimation, useStaggerAnimation } from './hooks/useAnimations';
 import StatItem from './components/StatItem';
 import styles from './styles/components.module.css';
 import testimonialStyles from './styles/testimonial.module.css';
 import clientStyles from './styles/clientLogos.module.css';
-import animationStyles from './styles/animations.module.css';
 import './styles/animations.module.css';
 import './styles/darkMode.module.css';
 import './styles/parallax.module.css';
@@ -164,38 +156,7 @@ function App() {
     },
   ];
 
-  const services = [
-    {
-      title: 'Web Development',
-      description: 'Modern, responsive websites built with the latest technologies.',
-      icon: 'Web'
-    },
-    {
-      title: 'Mobile Apps',
-      description: 'Native and cross-platform mobile applications.',
-      icon: 'Mobile'
-    },
-    {
-      title: 'UI/UX Design',
-      description: 'Beautiful, user-centered design that converts.',
-      icon: 'Design'
-    },
-    {
-      title: 'Digital Strategy',
-      description: 'Comprehensive digital transformation consulting.',
-      icon: 'Strategy'
-    },
-    {
-      title: 'E-commerce',
-      description: 'Full-featured online stores and marketplace solutions.',
-      icon: 'Shop'
-    },
-    {
-      title: 'Support & Maintenance',
-      description: '24/7 support and ongoing maintenance services.',
-      icon: 'Support'
-    }
-  ];
+
 
   return (
     <div className="app">
@@ -529,7 +490,7 @@ function App() {
             
             <Grid cols={2} gap={60}>
               <div>
-                <ContactForm onSubmit={(data: any) => {
+                <ContactForm onSubmit={(data) => {
                   console.log('Contact form submitted:', data);
                   alert('Thank you for your message! We\'ll get back to you soon.');
                 }} />
